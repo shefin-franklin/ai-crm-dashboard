@@ -2,8 +2,6 @@
 
 /* ─────────────────────────────────────────────────────────────
    Quixotic CRM — design tokens (Tailwind v4 @theme)
-   A muted "fintech sage" palette inspired by the reference UI:
-   soft gray canvas, white cards, forest-green brand accent.
    ───────────────────────────────────────────────────────────── */
 @theme {
   /* Brand sky-blue scale */
@@ -18,7 +16,7 @@
   --color-brand-800: #075985;
   --color-brand-900: #0c4a6e;
 
-  /* Semantic surfaces — white canvas, cards defined by a hairline + shadow */
+  /* Semantic surfaces */
   --color-canvas: #ffffff;
   --color-surface: #ffffff;
   --color-surface-muted: #f1f5f9;
@@ -30,7 +28,7 @@
   --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --font-display: "Sora", "Inter", system-ui, sans-serif;
 
-  /* Radii & shadows — soft, rounded SaaS feel */
+  /* Radii & shadows */
   --radius-xl: 1rem;
   --radius-2xl: 1.5rem;
   --radius-3xl: 2rem;
@@ -39,7 +37,7 @@
   --shadow-pop: 0 12px 40px -12px rgba(16, 24, 40, 0.25);
 }
 
-/* Base resets ─────────────────────────────────────────────── */
+/* Base resets */
 * {
   border-color: var(--color-line);
 }
@@ -60,13 +58,11 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* Headings use the display font for a more premium, branded feel */
 h1, h2, h3, h4 {
   font-family: var(--font-display);
   letter-spacing: -0.02em;
 }
 
-/* Custom slim scrollbars to match the polished aesthetic */
 ::-webkit-scrollbar {
   width: 10px;
   height: 10px;
@@ -82,14 +78,12 @@ h1, h2, h3, h4 {
   background-clip: content-box;
 }
 
-/* Reusable utility layer */
 @layer utilities {
   .card {
     background: var(--color-surface);
     border-radius: var(--radius-2xl);
     box-shadow: var(--shadow-card);
   }
-  /* Sky-blue brand gradient used for primary surfaces (buttons, CTAs, hero). */
   .brand-gradient {
     background-image: linear-gradient(
       135deg,
@@ -111,11 +105,42 @@ h1, h2, h3, h4 {
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
+
   @keyframes fade-up {
     from { opacity: 0; transform: translateY(6px); }
-    to { opacity: 1; transform: translateY(0); }
+    to   { opacity: 1; transform: translateY(0); }
   }
   .animate-fade-up {
     animation: fade-up 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  /* ── Mobile sidebar slide animations ─────────────────────── */
+  @keyframes slidein {
+    from { transform: translateX(-100%); }
+    to   { transform: translateX(0); }
+  }
+  @keyframes slideout {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-100%); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  @keyframes fadeOut {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+  }
+  .animate-slidein {
+    animation: slidein 0.28s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  .animate-slideout {
+    animation: slideout 0.25s cubic-bezier(0.4, 0, 1, 1) both;
+  }
+  .animate-fade-in {
+    animation: fadeIn 0.2s ease both;
+  }
+  .animate-fade-out {
+    animation: fadeOut 0.2s ease both;
   }
 }
