@@ -27,9 +27,9 @@ export function TopNav({ onMenuClick }) {
 
   return (
     <header className="flex items-center gap-3">
-      {/* Brand */}
-      <div className="flex items-center gap-2.5 pr-2">
-        <div className="brand-gradient flex h-9 w-9 items-center justify-center rounded-xl text-white">
+      {/* Brand — pb-1 adds the requested space below the logo in the top bar */}
+      <div className="flex items-center gap-2.5 pb-1 pr-2">
+        <div className="brand-gradient flex h-9 w-9 items-center justify-center rounded-xl text-white shadow-sm">
           <Sparkles className="h-5 w-5" />
         </div>
         <span className="hidden font-display text-lg font-bold text-ink sm:block">
