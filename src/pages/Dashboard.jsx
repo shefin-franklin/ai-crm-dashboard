@@ -518,7 +518,7 @@ function ActivityTable({ leads }) {
             const style = STAGE_STYLES[l.status] || STAGE_STYLES.New;
             return (
               <tr
-                key={l.id}
+                key={l._id}
                 className="border-t border-line transition hover:bg-surface-muted/50"
               >
                 <td className="py-3.5">
